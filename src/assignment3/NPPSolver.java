@@ -3,6 +3,8 @@ package assignment3;
 import ilog.concert.*;
 import ilog.cplex.IloCplex;
 
+import java.util.Arrays;
+
 public class NPPSolver {
 
     public NPPSolver(){}
@@ -72,6 +74,13 @@ public class NPPSolver {
                     System.out.println("Relaxation result: "+model.getObjValue()+'\n');
                 }
             }
+
+            System.out.println("U=");
+            for (int i = 0; i < number_areas; i++){
+                System.out.println(Arrays.toString(model.getValues(u[i])));
+            }
+            System.out.println('\n'+"R="+Arrays.toString(model.getValues(r))+'\n');
+
 
             // LP output into an lp file
             //model.exportModel("export.lp");
